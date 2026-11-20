@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- 由 scripts/build.js 从 assets/content.js 与 assets/templates.js 生成，请勿直接编辑。 -->
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="scripts/build.js">
+<title>模块二：提示词核心能力｜AI办公与写作实战</title>
+<meta name="description" content="掌握结构化指令设计方法，让AI的输出更加可控、可复现。模块二共5节讲义与实践任务。">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#0f766e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="AI办公与写作实战">
+<meta property="og:title" content="模块二：提示词核心能力｜AI办公与写作实战">
+<meta property="og:description" content="掌握结构化指令设计方法，让AI的输出更加可控、可复现。模块二共5节讲义与实践任务。">
+<meta property="og:image" content="../../assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI办公与写作实战：AI 写初稿，人来签字">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="模块二：提示词核心能力｜AI办公与写作实战">
+<meta name="twitter:description" content="掌握结构化指令设计方法，让AI的输出更加可控、可复现。模块二共5节讲义与实践任务。">
+<meta name="twitter:image" content="../../assets/og.png">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="./">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "提示词核心能力",
+  "description": "掌握结构化指令设计方法，让AI的输出更加可控、可复现。",
+  "inLanguage": "zh-Hans",
+  "learningResourceType": "课程模块",
+  "isAccessibleForFree": true,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "AI办公与写作实战"
+  }
+}
+</script>
+</head>
+<body data-route="/m/m2" data-root="../../">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录" aria-expanded="false">☰</button>
+  <a href="../../" data-route="/" class="brand">AI办公与写作实战</a>
+  <div class="topbar-progress" title="课程进度"><span id="topProgressText">0%</span><div class="bar"><i id="topProgressBar"></i></div></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="课程目录"><a href="../../" data-route="/"><span class="ico">⌂</span>课程首页</a><h4>课程模块</h4><a href="../../m/m1/" data-route="/m/m1"><span class="num">1</span>认知重建与工具选型</a><a href="../../m/m2/" data-route="/m/m2" class="active" aria-current="page"><span class="num">2</span>提示词核心能力</a><a href="../../m/m3/" data-route="/m/m3"><span class="num">3</span>写作实战</a><a href="../../m/m4/" data-route="/m/m4"><span class="num">4</span>会议、数据与视觉</a><a href="../../m/m5/" data-route="/m/m5"><span class="num">5</span>核验、伦理与工作流固化</a><h4>工具箱</h4><a href="../../templates/" data-route="/templates"><span class="ico">▤</span>提示词模板库</a><a href="../../workshop/" data-route="/workshop"><span class="ico">✎</span>提示词工坊</a><a href="../../checklist/" data-route="/checklist"><span class="ico">☑</span>输出核验助手</a><a href="../../pack/" data-route="/pack"><span class="ico">★</span>我的模板包</a></nav>
+  <main id="app" tabindex="-1"><div class="wrap"><div class="module-head"><h1>提示词核心能力</h1><div class="module-meta">模块二 · 约2小时</div><div class="goal"><b>学习目标：</b>掌握结构化指令设计方法，让AI的输出更加可控、可复现。</div></div><div class="toc"><a href="#sec-0">2.1 为什么同样问AI，结果天差地别</a><a href="#sec-1">2.2 五要素：角色 + 背景 + 任务 + 要求 + 格式</a><a href="#sec-2">2.3 三种典型指令模式</a><a href="#sec-3">2.4 进阶技巧：思维链与限制性条件</a><a href="#sec-4">2.5 建立和复用你的提示词模板</a><a href="#practice">实践任务</a></div><section class="card section" id="sec-0"><h2><span class="sec-no">2.1</span>为什么同样问AI，结果天差地别</h2>
+<p>“帮我写一份项目延期通知”，这句话里缺了太多信息：谁发给谁？延期多久、什么原因？要不要道歉？多长？AI会<b>用最常见、最平均的答案把空白补上</b>，于是得到一份四平八稳、处处是【XX】、语气也不一定对的通用稿。</p>
+<p>提示词的本质，就是<b>把你脑子里的背景和标准显式地交代给AI</b>。交代得越清楚，输出越可预期。</p></section><section class="card section" id="sec-1"><h2><span class="sec-no">2.2</span>五要素：角色 + 背景 + 任务 + 要求 + 格式</h2>
+<div class="table-scroll"><table class="t">
+<tr><th>要素</th><th>回答的问题</th><th>示例</th></tr>
+<tr><td><span class="tag role">角色</span></td><td>AI以什么身份、什么水平来做？</td><td>你是一名有十年经验的项目经理，擅长与客户沟通。</td></tr>
+<tr><td><span class="tag ctx">背景/语境</span></td><td>发生了什么？给谁看？已知哪些事实？</td><td>A项目原定6月30日上线，因第三方接口延迟交付，需延期至7月15日。</td></tr>
+<tr><td><span class="tag task">任务</span></td><td>具体要产出什么？</td><td>请写一份发给客户方项目负责人的延期通知邮件。</td></tr>
+<tr><td><span class="tag req">要求/限制</span></td><td>字数、语气、必须包含/禁止出现什么？</td><td>300字以内；诚恳但不卑微；不要把责任全部推给第三方。</td></tr>
+<tr><td><span class="tag fmt">输出格式</span></td><td>结果长什么样？</td><td>按“邮件主题 / 正文 / 署名”输出。</td></tr>
+</table></div>
+<p>下面这条提示词把五个要素都写全了。<b>点击左侧的彩色标签可以“关掉”某个要素</b>，看看少了它会出什么问题。</p>
+<div data-widget="anatomy"></div>
+<div class="callout tip"><b>不必每次写满五项</b>简单任务（如“把这段话改得更口语一点”）一两句就够。但凡是对外发送、正式留档、反复使用的任务，都值得写全。</div></section><section class="card section" id="sec-2"><h2><span class="sec-no">2.3</span>三种典型指令模式</h2>
+<div data-widget="modes"></div>
+<div class="callout tip"><b>怎么选</b>标准清楚就用专家型；“说不清，但给你看一眼就懂”就用示范型；任何一次输出不满意，都转入迭代型，不要推倒重来。</div></section><section class="card section" id="sec-3"><h2><span class="sec-no">2.4</span>进阶技巧：思维链与限制性条件</h2>
+<h3>思维链（CoT）：先分析，再输出</h3>
+<p>复杂任务直接要结果，AI容易跳步。要求它<b>先列出分析过程，再成文</b>，你也能顺便检查它的理解有没有偏。</p>
+<pre class="prompt">在写正文之前，请先分三点列出：
+1. 这封邮件的收件人最关心什么；
+2. 必须传达的关键事实有哪些；
+3. 哪些表述可能引起误解或不满。
+确认以上分析后，再据此写出正文。</pre>
+<p class="small muted">说明：一些“推理模型”会自动进行内部推理。即便如此，要求它把分析要点写出来，仍然有助于你检查思路、发现误解。</p>
+<h3>限制性条件：控制字数、语气、禁忌词与格式</h3>
+<div class="table-scroll"><table class="t">
+<tr><th>控制项</th><th>写法示例</th></tr>
+<tr><td>字数</td><td>“全文控制在300字以内”“每条要点不超过20字”</td></tr>
+<tr><td>语气</td><td>“诚恳、专业，不使用网络用语和感叹号”</td></tr>
+<tr><td>禁忌词</td><td>“不要出现‘绝对’‘保证’‘一定’等承诺性词语”</td></tr>
+<tr><td>格式</td><td>“用表格输出，列为：事项/负责人/截止时间”“不要使用Markdown符号”</td></tr>
+<tr><td>信息边界</td><td>“只使用我提供的信息；缺少的内容用【待补充】标出，不要自行编造”</td></tr>
+</table></div>
+<div class="callout warn"><b>最重要的一条限制</b>“只使用我提供的信息，缺失处标注【待补充】”。它能大幅减少AI编造数据和进展，后面每个写作任务都会用到。</div></section><section class="card section" id="sec-4"><h2><span class="sec-no">2.5</span>建立和复用你的提示词模板</h2>
+<p>当一条提示词被验证好用，就把它变成模板：<b>固定的部分</b>（角色、要求、格式）保留，<b>每次变化的部分</b>换成变量。</p>
+<pre class="prompt">你是一名经验丰富的行政。
+请根据以下信息起草一份发给{{发送对象}}的{{通知类型}}通知：
+- 事项：{{事项}}
+- 时间地点：{{时间地点}}
+- 需要配合的事项：{{需要配合的事项}}
+要求：语言简洁规范，300字以内；只使用以上信息，缺失处标注【待补充】。
+格式：标题 / 正文 / 落款与日期。</pre>
+<p>建议给每条模板附上三样东西：<b>适用场景</b>、<b>使用注意</b>、<b>最近一次修改</b>。针对高频任务（通知、周报、邮件、汇报）各沉淀1—2条，就够覆盖大部分日常工作。</p>
+<div class="btn-row"><a class="btn primary" href="../../templates/" data-route="/templates">打开提示词模板库</a><a class="btn" href="../../workshop/" data-route="/workshop">在提示词工坊里自己搭一条</a></div></section><section class="card practice" id="practice"><div class="widget-title">实践任务</div><h2>写一份项目延期通知：裸提示 vs 结构化提示</h2><p>先用一句话的“裸提示”生成一版，再用五要素重写提示词生成第二版，对比两者的差距，并把好用的那条沉淀成你的<b>第一条可复用模板</b>。下面的示例展示了常见的差距，你的实际结果可能不同。</p><ol class="small"><li>在AI工具中输入裸提示“帮我写一份项目延期通知”，保存结果。</li><li>用五要素写一条结构化提示词（可以用你真实的项目情况，但去掉敏感信息），生成第二版。</li><li>从完整性、语气得体度、可修改性三方面对比，填写下表。</li><li>把结构化提示词中会变化的内容换成 {{变量}}，形成你的第一条模板。</li></ol><p class="muted small">启用 JavaScript 后可填写并保存练习记录，并加入「我的模板包」。</p></section><div class="pager"><a href="../../m/m1/" data-route="/m/m1" class="btn">← 模块一：认知重建与工具选型</a><a href="../../m/m3/" data-route="/m/m3" class="btn primary next">模块三：写作实战 →</a></div></div></main>
+</div>
+<footer class="site-footer">
+  <p><b>AI办公与写作实战</b>：面向中国职场人的交互式AI应用课程。个人项目，不代表任何机构。</p>
+  <p>无需注册；学习进度、测验答案与练习记录仅保存在本浏览器的 localStorage 中，不会上传到任何服务器。 · <a href="../../pack/" data-route="/pack" data-share-course>分享这门课</a></p>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/content.js" defer></script>
+<script src="../../assets/templates.js" defer></script>
+<script src="../../assets/seo.js" defer></script>
+<script src="../../assets/share.js" defer></script>
+<script src="../../assets/widgets.js" defer></script>
+<script src="../../assets/app.js" defer></script>
+</body>
+</html>
