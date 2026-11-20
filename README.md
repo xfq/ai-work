@@ -1,5 +1,7 @@
 # AI办公与写作实战
 
+在线地址：<https://xfq.github.io/ai-work/>
+
 交互式课程网站：5 个模块的讲义与测验，其中 4 个模块配有实践任务，另含提示词模板库、提示词工坊、输出核验助手和「我的模板包」导出。学习进度和练习记录会保存在浏览器 localStorage 中。
 
 ## 本地打开
@@ -22,7 +24,7 @@ node scripts/build.js
 生成时传入 `SITE_URL`，会额外生成 `sitemap.xml`、写入 `robots.txt`，并把 canonical、`og:url` 和 `og:image` 写成绝对地址：
 
 ```bash
-SITE_URL=https://example.com/ai-work node scripts/build.js
+SITE_URL=https://xfq.github.io/ai-work node scripts/build.js
 ```
 
 生成出来的 HTML 需要一起提交/部署，服务器上不需要运行构建。
