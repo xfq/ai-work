@@ -1,0 +1,192 @@
+<!doctype html>
+<!-- 由 scripts/build.js 从 assets/content.js 与 assets/templates.js 生成，请勿直接编辑。 -->
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="scripts/build.js">
+<title>工具实操：WorkBuddy、对话工具、PPT 工具怎么用｜AI办公与写作实战</title>
+<meta name="description" content="三个真实任务的操作示例：用 WorkBuddy 把会议记录整理成纪要和待办，用对话工具写周报，用 PPT 工具做视觉初稿；含界面截图、提示词和验收清单。">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#0f766e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="AI办公与写作实战">
+<meta property="og:title" content="工具实操：WorkBuddy、对话工具、PPT 工具怎么用｜AI办公与写作实战">
+<meta property="og:description" content="三个真实任务的操作示例：用 WorkBuddy 把会议记录整理成纪要和待办，用对话工具写周报，用 PPT 工具做视觉初稿；含界面截图、提示词和验收清单。">
+<meta property="og:url" content="https://xfq.github.io/ai-work/tools/">
+<meta property="og:image" content="https://xfq.github.io/ai-work/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI办公与写作实战：AI 写初稿，人来签字">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="工具实操：WorkBuddy、对话工具、PPT 工具怎么用｜AI办公与写作实战">
+<meta name="twitter:description" content="三个真实任务的操作示例：用 WorkBuddy 把会议记录整理成纪要和待办，用对话工具写周报，用 PPT 工具做视觉初稿；含界面截图、提示词和验收清单。">
+<meta name="twitter:image" content="https://xfq.github.io/ai-work/assets/og.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://xfq.github.io/ai-work/tools/">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "工具实操：三个真实任务",
+  "description": "三个真实任务的操作示例：用 WorkBuddy 把会议记录整理成纪要和待办，用对话工具写周报，用 PPT 工具做视觉初稿；含界面截图、提示词和验收清单。",
+  "inLanguage": "zh-Hans",
+  "learningResourceType": "工具实操",
+  "isAccessibleForFree": true,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "AI办公与写作实战"
+  },
+  "url": "https://xfq.github.io/ai-work/tools/"
+}
+</script>
+</head>
+<body data-route="/tools" data-root="../">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录" aria-expanded="false">☰</button>
+  <a href="../" data-route="/" class="brand">AI办公与写作实战</a>
+  <div class="topbar-progress" title="课程进度"><span id="topProgressText">0%</span><div class="bar"><i id="topProgressBar"></i></div></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="课程目录"><a href="../" data-route="/"><span class="ico">⌂</span>课程首页</a><h4>课程模块</h4><a href="../m/m1/" data-route="/m/m1"><span class="num">1</span>认知重建与工具选型</a><a href="../m/m2/" data-route="/m/m2"><span class="num">2</span>提示词核心能力</a><a href="../m/m3/" data-route="/m/m3"><span class="num">3</span>写作实战</a><a href="../m/m4/" data-route="/m/m4"><span class="num">4</span>会议、数据与视觉</a><a href="../m/m5/" data-route="/m/m5"><span class="num">5</span>核验、伦理与工作流固化</a><h4>工具箱</h4><a href="../tools/" data-route="/tools" class="active" aria-current="page"><span class="ico">▸</span>工具实操</a><a href="../templates/" data-route="/templates"><span class="ico">▤</span>提示词模板库</a><a href="../workshop/" data-route="/workshop"><span class="ico">✎</span>提示词工坊</a><a href="../checklist/" data-route="/checklist"><span class="ico">☑</span>输出核验助手</a><a href="../pack/" data-route="/pack"><span class="ico">★</span>我的模板包</a></nav>
+  <main id="app" tabindex="-1"><div class="wrap"><div class="module-head"><h1>工具实操：三个真实任务</h1><p class="muted">工具分工讲完，接下来看三个真实任务怎么落地。重点不是记住按钮位置，而是看清楚：什么任务交给哪类工具、提示词怎么给、结果怎么验收。</p></div><div class="callout tip small">本页 WorkBuddy 截图来自 2026 年 11 月的桌面端 5.9.3，界面会随版本变化。</div><section class="card case" id="workbuddy"><div class="case-kicker">案例一 · Agent 型工作台</div><h2>把一份会议记录，变成正式纪要和待办表</h2><p class="case-lead">这类任务要读文件、拆步骤、再写出文件，正好是 Agent 型工具的用武之地。</p><div class="case-meta"><span class="case-meta-item"><b>适合</b>多步骤、要读本地文件、要产出文件</span><span class="case-meta-item"><b>用时</b>约 10—15 分钟，不含人工核对</span><span class="case-meta-item"><b>风险</b>中：会写入本地文件，必须确认</span></div>
+<p>WorkBuddy 是腾讯出的桌面端 AI 工作台。它和聊天框最大的区别是：你给它一个工作空间和一条任务，它会自己拆步骤、读文件、调用工具，最后把文件放进工作空间；过程留在对话区，结果留在右侧结果区。适合“要做几步、还要落到文件”的活。</p>
+<figure class="shot">
+  <img src="../assets/shots/workbuddy-new-task.png" width="1700" height="870" alt="WorkBuddy 桌面端的新建任务界面，包含办公、开发、设计三个场景切换，任务输入框，以及选择工作空间和默认权限两个选项">
+  <figcaption>WorkBuddy 桌面端的新建任务界面（2026-11）</figcaption>
+</figure>
+<div class="grid three shot-legend">
+  <div class="card" style="margin:0"><div class="pill">① 场景</div><p class="small">办公、开发、设计。日常文书选“办公”，不要一上来就选开发。</p></div>
+  <div class="card" style="margin:0"><div class="pill">② 输入区</div><p class="small">直接写任务；<code>@</code> 引用文件或文档，<code>+</code> 上传文件，也可以把文件拖进来。</p></div>
+  <div class="card" style="margin:0"><div class="pill">③ 任务边界</div><p class="small">左下角“选择工作空间”，右下角“默认权限”。先划边界，再发任务。</p></div>
+</div>
+<figure class="shot">
+  <img src="../assets/shots/workbuddy-input.png" width="1680" height="470" alt="WorkBuddy 输入框局部：左下角是选择工作空间，旁边是默认权限，右下角是发送按钮">
+  <figcaption>局部放大：输入框下方这两个开关，决定这次任务能碰哪些文件、哪些动作要先问你。</figcaption>
+</figure>
+<h3>先准备一个“只放这次材料”的工作空间</h3>
+<p>在桌面新建一个文件夹，例如 <code>搬迁会议-1120</code>，只放这次要处理的会议记录。</p>
+<h3>任务描述：把“要求”写具体</h3>
+<pre class="prompt">你是一名有 10 年经验的行政主管，擅长把口语化的会议记录整理成可执行的正式文件。
+
+背景：这是 11 月 20 日园区搬迁协调会的速记，参会人包括行政、物业、IT 三个部门。记录里有讨论、跑题和重复内容，部分事项没有明确负责人；有员工问到搬迁当天的班车，会上只说“再确认”，没有形成结论。
+
+任务：整理成一份正式会议纪要，并单独列出待办表。
+
+要求：
+- 只写记录里出现过的信息；没有依据的内容标为“待确认”，不要编造。
+- 区分“讨论”与“决议”；决议必须有明确结论。
+- 待办表包含：事项、负责人、截止时间、依赖/风险。
+- 人名、部门名、日期保持原样；无法确认的用【待确认】。
+
+输出格式：
+1. 会议纪要（Markdown，含会议主题、时间、参会人、议题、决议）
+2. 待办表（Markdown 表格）
+3. 保存为「会议纪要-1120.md」，放在当前工作空间。</pre>
+<h3>操作步骤</h3>
+<ol class="case-steps">
+  <li><b>新建任务，场景选“办公”。</b>在左侧点“新建任务”，确认顶部场景是“办公”。</li>
+  <li><b>选择工作空间。</b>点输入框左下角的“选择工作空间”，选中刚才那个文件夹。它会成为这次任务读写文件的边界。</li>
+  <li><b>上传记录，粘贴提示词。</b>把会议记录拖进对话框，或点“+”上传；再把上面的提示词粘进去。发送前先扫一眼：有没有真实姓名、电话、客户名？有就换成 A、B、C。</li>
+  <li><b>在右侧结果区验收。</b>“产物”看交付文件，“工作空间文件”看目录结构，“变更”看这次改了哪些文件。重点核对人名、日期、负责人和数字。</li>
+  <li><b>交付或归档。</b>另存为、导出，或按单位规定上传到协作空间。生成公开分享链接前，再确认一次里面没有敏感信息。</li>
+</ol>
+<h3>它应该交回什么</h3>
+<div class="sample-label">示例（已脱敏，姓名为虚构），重点看第 4 条</div>
+<div class="table-scroll"><table class="t">
+<tr><th style="width:6%">序号</th><th>待办事项</th><th style="width:14%">负责人</th><th style="width:14%">截止时间</th><th style="width:12%">状态</th></tr>
+<tr><td>1</td><td>确认新园区车位数量与分配规则</td><td>物业-王工</td><td>11月25日</td><td>待办</td></tr>
+<tr><td>2</td><td>统计各部门工位需求</td><td>行政-李敏</td><td>11月27日</td><td>待办</td></tr>
+<tr><td>3</td><td>完成新园区网络与门禁联调</td><td>IT-陈浩</td><td>12月3日</td><td>待办</td></tr>
+<tr><td>4</td><td>确认搬迁当天班车安排</td><td>【待确认】</td><td>【待确认】</td><td>待确认</td></tr>
+</table></div>
+<p class="small">第 4 条在原始记录里只说了“班车再确认”，没有形成决议、也没有指定负责人。把它标成“待确认”，比替会议编一个负责人和日期更专业。这就是验收时要看的地方。</p>
+<h3>验收清单</h3>
+<ul>
+<li>每条待办都有明确负责人和截止时间？没有就标“待确认”，不要替会议做主。</li>
+<li>“讨论过”和“已决定”分开了吗？不要把讨论中的方案写成决议。</li>
+<li>人名、部门、日期、数字逐条对照原始记录；重点看金额、数量和“本周/下周”这类相对时间。</li>
+<li>引用的是最新版记录吗？有没有漏页、漏掉的附件？</li>
+<li>输出文件真的写进了指定目录吗？文件名符合单位规范吗？</li>
+<li>公开链接、云端上传、转发到微信之前，确认权限和脱敏都处理好了。</li>
+</ul>
+<div class="callout tip"><b>什么时候别用 WorkBuddy</b>一句话能答的、纯改写的、不需要碰文件的，用对话工具更快；单位没有批准外部工具，或材料本身敏感，就不要用；只是排版，等内容定稿后交给 PPT/文档工具。</div>
+<p class="small muted">功能说明参考 WorkBuddy 官方文档：<a href="https://www.workbuddy.cn/docs/workbuddy/Overview" target="_blank" rel="noopener">产品简介</a>、<a href="https://www.workbuddy.cn/docs/workbuddy/Create-Task" target="_blank" rel="noopener">创建任务</a>、<a href="https://www.workbuddy.cn/docs/workbuddy/Results" target="_blank" rel="noopener">结果查看</a>。操作以你使用的版本为准。</p></section><section class="card case" id="chat"><div class="case-kicker">案例二 · 对话型工具</div><h2>用 6 条流水账，写出一份不空洞的周报</h2><p class="case-lead">不需要读文件、也不需要产出文件时，对话工具仍然是最快、最可控的选择。</p><div class="case-meta"><span class="case-meta-item"><b>适合</b>单轮起草、改写、提炼、换语气</span><span class="case-meta-item"><b>用时</b>约 5 分钟</span><span class="case-meta-item"><b>风险</b>低：但仍要核对事实和进度</span></div>
+<p>周报写不出来，通常不是因为“不会写”，而是因为手上只有流水账。对话工具的价值是帮你把事实重新组织，而不是替你回忆事实。先把这周做过的事列成 6 条，再让 AI 整理。</p>
+<p class="small muted">下面以 DeepSeek、Kimi 这类对话工具为例；换成豆包、ChatGPT 等同类工具，操作思路一样，入口以你使用的版本为准。</p>
+<pre class="prompt">你是一名制造业公司的运营专员，向部门经理汇报。
+
+背景：这是我这周的 6 条工作记录：
+- 周一：整理 3 条客户投诉，2 条是物流延迟，1 条是包装破损；
+- 周二：和仓库确认新的退货流程，平均处理时间从 5 天降到 3 天；
+- 周三：参加园区搬迁会，负责统计工位；
+- 周四：给 12 家客户发对账单，收回 8 家；
+- 周五：写了下月促销方案初稿，还没定；
+- 周五：跟进 A 客户的破损赔付，等财务确认。
+
+任务：写一份 300 字以内的周报。
+
+要求：
+- 按“本周完成 / 存在问题 / 下周计划”三段写；
+- 只使用我给的事实，不要编造数据；
+- 把“还没定/等确认”的事放进下周计划或风险，不要写成已完成；
+- 语气平实，不喊口号。
+
+输出格式：三段式，每段 2—3 句。</pre>
+<h3>操作要点</h3>
+<ol class="case-steps">
+  <li><b>先列事实，再打开 AI。</b>把“做了什么、做到哪一步、卡在哪里”写成短句。不要一边想一边让 AI 猜。</li>
+  <li><b>要求先提纲、后成文。</b>如果直接要 300 字，它容易用套话填满；先让它列三段提纲，你确认后再展开。</li>
+  <li><b>追问一次“哪些是推断”。</b>例如：“上面哪些句子是我没给你的推断？哪些事实需要我补？”这一步能逼出隐藏的编造。</li>
+  <li><b>自己补数据和进度。</b>“从 5 天降到 3 天”这类数字，必须来自你的记录；AI 只负责把它放到合适的位置。</li>
+</ol>
+<div class="callout bad"><b>常见翻车</b>把“方案初稿，还没定”写成“已完成促销方案”；把“等财务确认”写成“赔付已到账”。这类错误不是文笔问题，是事实问题，发出去要承担责任。</div>
+<p class="small">这个任务为什么不用 WorkBuddy？因为它不需要读本地文件，也不需要生成文件；一轮对话就能完成，开工作空间反而增加操作成本。<b>工具不是越重越好，匹配任务就行。</b></p></section><section class="card case" id="deck"><div class="case-kicker">案例三 · 输出型工具</div><h2>内容定稿后，再让 PPT 工具做视觉</h2><p class="case-lead">PPT 工具擅长模板、排版和导出，不擅长替你想清楚每页要说什么。顺序反了，返工最多。</p><div class="case-meta"><span class="case-meta-item"><b>适合</b>内容已定稿，只差排版、配图和导出</span><span class="case-meta-item"><b>用时</b>约 20 分钟</span><span class="case-meta-item"><b>风险</b>低：注意图片版权和敏感信息</span></div>
+<p>很多工具能“一键生成 PPT”，页面很漂亮，但内容常常泛泛而谈，甚至编数据。正确的顺序是：<b>先在文档里把内容定稿，再进 PPT 工具做视觉。</b>PPT 阶段只解决“看起来清楚”，不解决“说得对不对”。</p>
+<p class="small muted">下面以 WPS AI、腾讯文档这类带 AI 的演示工具为例；换成 Canva、Gamma 等同类工具，步骤也一样。</p>
+<h3>先把大纲写成“一页一句结论”</h3>
+<div class="sample">
+第1页  封面：园区搬迁，分两批完成
+第2页  为什么要搬：老楼容量不足，新园区通勤和配套更好
+第3页  时间安排：第一批 12 月 6 日，第二批 12 月 13 日
+第4页  员工最关心的三件事：通勤、车位、工位
+第5页  需要各部门配合：人员名单、设备清单、搬迁窗口
+第6页  风险与预案：网络联调延迟、天气、临时变更
+第7页  下一步：本周确认名单，下周发正式通知
+</div>
+<p class="small muted">每页只留一个结论句和最多 3 条依据。图表位置先写“留白”，等数据确认后再放，避免 PPT 工具用假数据填满。</p>
+<h3>再交给 PPT 工具</h3>
+<pre class="prompt">请根据下面的 7 页大纲生成一份汇报 PPT 初稿。
+
+要求：
+- 16:9，风格简洁，主色深绿；
+- 每页只保留一个结论句和最多 3 条要点；
+- 不要添加大纲里没有的数据、案例或人名；
+- 图表位置留白，标注“待替换”，等我放真实数据；
+- 需要强调的数字用大字号，但不要改变数字本身。
+
+大纲：
+（把上面 7 页内容粘在这里）</pre>
+<ol class="case-steps">
+  <li><b>选模板，不选“智能创作”。</b>优先用单位模板或品牌模板；没有就选一个干净的，别让模板抢内容。</li>
+  <li><b>生成后逐页删。</b>删形容词、删重复句、删没有出处的数据；一页只留一个重点。</li>
+  <li><b>图表回到原始表格核对。</b>PPT 工具生成的图表，数字和口径都要重新对一遍；对不上就删掉重做。</li>
+  <li><b>导出前检查。</b>页码、目录、字体、图片版权、备注页里有没有残留的敏感信息。</li>
+</ol>
+<div class="callout warn"><b>不要做的事</b>不要让 PPT 工具“顺便”补内容；不要先花两小时排版，再发现结论不对；不要用来路不明的图片和图标。内容错了，版式越漂亮，返工越难受。</div></section><section class="card"><h2>三个案例怎么选</h2><div class="table-scroll"><table class="t"><tr><th>你的任务长什么样</th><th style="width:18%">优先用</th><th>为什么</th><th style="width:16%">对应案例</th></tr><tr><td>要读多个文件、步骤多、最后要交文件</td><td><b>Agent 型工作台</b></td><td>能自己拆步骤、调用工具、把结果落到工作空间</td><td>案例一 · WorkBuddy</td></tr><tr><td>一次性起草、改写、提炼、换语气</td><td><b>对话型工具</b></td><td>快、成本低、随时追问，不需要配置工作空间</td><td>案例二 · 周报</td></tr><tr><td>内容已定稿，只差排版、配图和导出</td><td><b>输出型工具</b></td><td>模板和导出能力强，但不负责内容判断</td><td>案例三 · PPT</td></tr></table></div><p class="small muted">判断顺序：先看任务要几步、要不要碰文件；再看是否需要排版。工具可以换，判断顺序不用换。</p><div class="btn-row"><a href="../m/m1/" data-route="/m/m1" class="btn">← 回到模块一：工具分工</a><a href="../templates/" data-route="/templates" class="btn primary">去模板库挑一条提示词 →</a></div></section></div></main>
+</div>
+<footer class="site-footer">
+  <p><b>AI办公与写作实战</b>：面向中国职场人的交互式AI应用课程。个人项目，不代表任何机构。</p>
+  <p>无需注册；学习进度、测验答案与练习记录仅保存在本浏览器的 localStorage 中，不会上传到任何服务器。 · <a href="../pack/" data-route="/pack" data-share-course>分享这门课</a></p>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/content.js" defer></script>
+<script src="../assets/templates.js" defer></script>
+<script src="../assets/seo.js" defer></script>
+<script src="../assets/share.js" defer></script>
+<script src="../assets/widgets.js" defer></script>
+<script src="../assets/app.js" defer></script>
+</body>
+</html>

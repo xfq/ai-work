@@ -31,6 +31,10 @@
       a.setAttribute('href', hrefFor(route));
     });
   }
+  function fixAssets(html) {
+    var base = CLEAN_URLS ? SITE_BASE : ROOT;
+    return String(html == null ? '' : html).replace(/(src|poster|href)="assets\//g, '$1="' + base + 'assets/');
+  }
 
   var store = {
     get: function (k, d) {
@@ -121,6 +125,7 @@
       html += '<a href="#/m/' + m.id + '" data-r="/m/' + m.id + '" class="' + cls + '"><span class="num">' + (done ? '✓' : (i + 1)) + '</span>' + esc(m.short) + '</a>';
     });
     html += '<h4>工具箱</h4>' +
+      '<a href="#/tools" data-r="/tools"><span class="ico">▸</span>工具实操</a>' +
       '<a href="#/templates" data-r="/templates"><span class="ico">▤</span>提示词模板库</a>' +
       '<a href="#/workshop" data-r="/workshop"><span class="ico">✎</span>提示词工坊</a>' +
       '<a href="#/checklist" data-r="/checklist"><span class="ico">☑</span>输出核验助手</a>' +
@@ -218,11 +223,13 @@
       '<div class="card"><h2 style="font-size:1.12rem">适合谁</h2><p>' + esc(C.audience) + '</p>' +
       '<h2 style="font-size:1.12rem;margin-top:14px">怎么学</h2><ol class="small" style="padding-left:1.2em;margin:0">' +
       '<li>每个模块都有<b>讲义</b>（含可动手的小练习），大部分模块还配有<b>实践任务</b>；有实践任务的模块需标记完成，有测验的模块需全部答对，这个模块才算完成。</li>' +
+      '<li>不确定该用哪类工具时，先看「<b>工具实操</b>」里的三个案例，再回到模块继续学。</li>' +
       '<li>建议手边开着一个你常用的AI对话工具，看到示例提示词就复制过去亲自试一下。</li>' +
       '<li>练习记录、模板收藏都只保存在<b>本浏览器</b>，不会上传到任何地方。不要在练习框里填写真实的敏感信息。</li>' +
       '<li>学完后到「我的模板包」导出一份 Markdown 文件，就是你自己的AI办公工具箱。</li></ol></div>' +
       '<h2 style="margin:28px 0 12px">课程模块</h2><div class="grid two">' + cards + '</div>' +
       '<h2 style="margin:28px 0 12px">工具箱</h2><div class="grid two">' +
+      toolCard('#/tools', '工具实操', 'WorkBuddy、对话工具、PPT 工具的三个真实任务，含截图、提示词和验收清单。') +
       toolCard('#/templates', '提示词模板库', '通知、周报、邮件、会议纪要、数据、PPT 等 ' + T.length + ' 条模板，填空即用。') +
       toolCard('#/workshop', '提示词工坊', '按「角色 + 背景 + 任务 + 要求 + 格式」五要素搭建自己的提示词，并实时评估完整度。') +
       toolCard('#/checklist', '输出核验助手', '粘贴AI生成的文字，自动标出需要核对的数字、绝对化表述和敏感信息；配三道关口清单。') +
@@ -404,6 +411,40 @@
     };
   }
 
+  /* ---------- tools ---------- */
+  function pageTools() {
+    var data = C.toolCases;
+    if (!data) return pageNotFound();
+    var cases = data.cases.map(function (c) {
+      var meta = c.meta.map(function (m) {
+        return '<span class="case-meta-item"><b>' + esc(m.k) + '</b>' + esc(m.v) + '</span>';
+      }).join('');
+      return '<section class="card case" id="' + esc(c.id) + '">' +
+        '<div class="case-kicker">' + esc(c.kicker) + '</div>' +
+        '<h2>' + esc(c.title) + '</h2>' +
+        '<p class="case-lead">' + esc(c.lead) + '</p>' +
+        '<div class="case-meta">' + meta + '</div>' +
+        fixAssets(c.body) + '</section>';
+    }).join('');
+    var rows = data.choose.map(function (r) {
+      return '<tr><td>' + esc(r.need) + '</td><td><b>' + esc(r.tool) + '</b></td><td>' + esc(r.why) + '</td><td>' + esc(r.eg) + '</td></tr>';
+    }).join('');
+    app.innerHTML = '<div class="wrap">' +
+      '<div class="module-head"><h1>' + esc(data.title) + '</h1>' +
+      '<p class="muted">' + esc(data.intro) + '</p></div>' +
+      '<div class="callout tip small">' + esc(data.shotNote) + '</div>' +
+      cases +
+      '<section class="card"><h2>三个案例怎么选</h2>' +
+      '<div class="table-scroll"><table class="t">' +
+      '<tr><th>你的任务长什么样</th><th style="width:18%">优先用</th><th>为什么</th><th style="width:16%">对应案例</th></tr>' +
+      rows + '</table></div>' +
+      '<p class="small muted">判断顺序：先看任务要几步、要不要碰文件；再看是否需要排版。工具可以换，判断顺序不用换。</p>' +
+      '<div class="btn-row"><a class="btn" href="#/m/m1">← 回到模块一：工具分工</a>' +
+      '<a class="btn primary" href="#/templates">去模板库挑一条提示词 →</a></div></section>' +
+      '</div>';
+    normalizeLinks(app);
+  }
+
   /* ---------- templates ---------- */
   function varsOf(body) {
     var seen = {}, list = [], re = /\{\{([^}]+)\}\}/g, mm;
@@ -534,6 +575,7 @@
     var parts = path.split('/').filter(Boolean);
     if (!parts.length) pageHome();
     else if (parts[0] === 'm') pageModule(parts[1]);
+    else if (parts[0] === 'tools') pageTools();
     else if (parts[0] === 'templates') pageTemplates(parts[1]);
     else if (parts[0] === 'workshop') pageWorkshop();
     else if (parts[0] === 'checklist') pageChecklist();

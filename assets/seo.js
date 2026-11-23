@@ -24,8 +24,9 @@
     return null;
   }
   function homeDesc(C, T) {
+    var cases = C.toolCases && C.toolCases.cases ? C.toolCases.cases.length : 0;
     return '面向中国职场人的交互式AI办公课程：用AI起草通知、邮件、周报，整理会议纪要，做数据初步分析和PPT框架，并学会核验AI输出。' +
-      C.modules.length + '个模块、' + T.length + '条可填空提示词模板，无需注册，学习进度只保存在本机。';
+      C.modules.length + '个模块、' + T.length + '条可填空提示词模板' + (cases ? '、' + cases + '个工具实操案例' : '') + '，无需注册，学习进度只保存在本机。';
   }
   function pageMeta(parts, C, T) {
     if (!parts.length) return { title: HOME_TITLE, desc: homeDesc(C, T) };
@@ -37,6 +38,10 @@
         desc: m.goal + '模块' + m.no + '共' + m.sections.length + '节讲义' + (hasQuiz(m) ? '，含小测验' : '') + (hasPractice(m) ? '与实践任务' : '') + '。'
       };
     }
+    if (parts[0] === 'tools') return {
+      title: '工具实操：WorkBuddy、对话工具、PPT 工具怎么用｜' + SITE_NAME,
+      desc: '三个真实任务的操作示例：用 WorkBuddy 把会议记录整理成纪要和待办，用对话工具写周报，用 PPT 工具做视觉初稿；含界面截图、提示词和验收清单。'
+    };
     if (parts[0] === 'templates') {
       var sel = templateById(T, parts[1]);
       if (sel) return {

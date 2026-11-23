@@ -208,6 +208,27 @@ mark.m-risk{background:#fde2e0;border-bottom:2px solid #b42318}
 .flow .step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.9rem}
 .flow .arrow{color:var(--muted)}
 
+/* 工具实操 */
+.case{border-top:4px solid var(--accent)}
+.case-kicker{font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.04em}
+.case h2{margin:.15em 0 .2em;font-size:1.42rem}
+.case-lead{color:var(--ink2);margin-bottom:12px}
+.case-meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.case-meta-item{font-size:.8rem;color:var(--ink2);background:#f3f5f8;border-radius:99px;padding:3px 10px;line-height:1.7}
+.case-meta-item b{color:var(--muted);font-weight:600;margin-right:5px}
+.case-steps{list-style:none;padding:0;margin:12px 0 18px;counter-reset:step}
+.case-steps li{position:relative;padding:0 0 16px 42px;margin:0}
+.case-steps li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.82rem;font-weight:700;line-height:1}
+.case-steps li:not(:last-child)::after{content:"";position:absolute;left:13px;top:30px;bottom:0;width:2px;background:var(--line)}
+.case-steps b{display:inline}
+.shot{margin:18px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.shot img{display:block;width:100%;height:auto;background:#f6f7f9}
+.shot figcaption{font-size:.82rem;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfc;line-height:1.7}
+.shot figcaption a{margin-left:6px;white-space:nowrap}
+.shot-legend{margin:14px 0 6px}
+.shot-legend .pill{margin-bottom:6px}
+.case code{word-break:break-word}
+
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#1d2433;color:#fff;padding:8px 16px;border-radius:8px;font-size:.9rem;opacity:0;pointer-events:none;transition:all .25s;z-index:50}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .empty{color:var(--muted);font-size:.92rem;padding:10px 0}
@@ -252,6 +273,8 @@ mark.m-risk{background:#fde2e0;border-bottom:2px solid #b42318}
   .section{padding:24px 20px}
   .section h2{gap:8px;font-size:1.25rem}
   .section h2 .sec-no{flex:none}
+  .case h2{font-size:1.28rem}
+  .case-meta-item{font-size:.78rem}
   .btn,.btn.small,.chip,.seg button,.menu-btn{min-height:44px}
   .topbar{padding:0 12px;gap:8px}
   .brand{font-size:.95rem}

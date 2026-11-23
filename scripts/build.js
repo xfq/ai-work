@@ -8,7 +8,7 @@
  *   SITE_URL=https://example.com/ai-work node scripts/build.js
  *
  * 内容来源仍然是 assets/content.js 与 assets/templates.js。
- * 运行后会生成 index.html、m/<模块>/index.html、templates/<模板>/index.html、
+ * 运行后会生成 index.html、m/<模块>/index.html、tools/index.html、templates/<模板>/index.html、
  * workshop/index.html、checklist/index.html 和 pack/index.html。
  * 设置 SITE_URL 后还会生成 sitemap.xml，并在 robots.txt 中写入 Sitemap。
  */
@@ -81,6 +81,9 @@ function fixLinks(html, rel) {
     return 'href="' + hrefFor(route, rel) + '" data-route="' + route + '"';
   });
 }
+function fixAssets(html, rel) {
+  return String(html == null ? '' : html).replace(/(src|poster|href)="assets\//g, '$1="' + rel + 'assets/');
+}
 function metaFor(route) {
   return SEO.pageMeta(route.split('/').filter(Boolean), C, T);
 }
@@ -145,6 +148,20 @@ function moduleJsonLd(m) {
   if (absolute('/m/' + m.id)) item.url = absolute('/m/' + m.id);
   return item;
 }
+function toolsJsonLd(meta) {
+  var item = {
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    name: C.toolCases.title,
+    description: meta.desc,
+    inLanguage: 'zh-Hans',
+    learningResourceType: '工具实操',
+    isAccessibleForFree: true,
+    isPartOf: { '@type': 'Course', name: SEO.SITE_NAME }
+  };
+  if (absolute('/tools')) item.url = absolute('/tools');
+  return item;
+}
 function templateJsonLd(t, meta) {
   var item = {
     '@context': 'https://schema.org',
@@ -198,6 +215,7 @@ function renderSidebar(rel, active) {
     html += nav('/m/' + m.id, '<span class="num">' + (i + 1) + '</span>' + esc(m.short), active === '/m/' + m.id);
   });
   html += '<h4>工具箱</h4>' +
+    nav('/tools', '<span class="ico">▸</span>工具实操', active === '/tools') +
     nav('/templates', '<span class="ico">▤</span>提示词模板库', active === '/templates') +
     nav('/workshop', '<span class="ico">✎</span>提示词工坊', active === '/workshop') +
     nav('/checklist', '<span class="ico">☑</span>输出核验助手', active === '/checklist') +
@@ -229,11 +247,13 @@ function renderHome(rel) {
     '<div class="card"><h2 style="font-size:1.12rem">适合谁</h2><p>' + esc(C.audience) + '</p>' +
     '<h2 style="font-size:1.12rem;margin-top:14px">怎么学</h2><ol class="small" style="padding-left:1.2em;margin:0">' +
     '<li>每个模块都有<b>讲义</b>（含可动手的小练习），大部分模块还配有<b>实践任务</b>；有实践任务的模块需标记完成，有测验的模块需全部答对，这个模块才算完成。</li>' +
+    '<li>不确定该用哪类工具时，先看「<b>工具实操</b>」里的三个案例，再回到模块继续学。</li>' +
     '<li>建议手边开着一个你常用的AI对话工具，看到示例提示词就复制过去亲自试一下。</li>' +
     '<li>练习记录、模板收藏都只保存在<b>本浏览器</b>，不会上传到任何地方。不要在练习框里填写真实的敏感信息。</li>' +
     '<li>学完后到「我的模板包」导出一份 Markdown 文件，就是你自己的AI办公工具箱。</li></ol></div>' +
     '<h2 style="margin:28px 0 12px">课程模块</h2><div class="grid two">' + cards + '</div>' +
     '<h2 style="margin:28px 0 12px">工具箱</h2><div class="grid two">' +
+    toolCard('/tools', '工具实操', 'WorkBuddy、对话工具、PPT 工具的三个真实任务，含截图、提示词和验收清单。') +
     toolCard('/templates', '提示词模板库', '通知、周报、邮件、会议纪要、数据、PPT 等 ' + T.length + ' 条模板，填空即用。') +
     toolCard('/workshop', '提示词工坊', '按「角色 + 背景 + 任务 + 要求 + 格式」五要素搭建自己的提示词，并实时评估完整度。') +
     toolCard('/checklist', '输出核验助手', '粘贴AI生成的文字，自动标出需要核对的数字、绝对化表述和敏感信息；配三道关口清单。') +
@@ -286,6 +306,38 @@ function renderModule(m, rel) {
     '<div class="module-meta">模块' + esc(m.no) + ' · ' + esc(m.duration) + '</div>' +
     '<div class="goal"><b>学习目标：</b>' + esc(m.goal) + '</div></div>' +
     '<div class="toc">' + toc + '</div>' + sections + quiz + practice + pager + '</div>';
+}
+
+function renderTools(rel) {
+  var data = C.toolCases;
+  var cases = data.cases.map(function (c) {
+    var meta = c.meta.map(function (m) {
+      return '<span class="case-meta-item"><b>' + esc(m.k) + '</b>' + esc(m.v) + '</span>';
+    }).join('');
+    return '<section class="card case" id="' + esc(c.id) + '">' +
+      '<div class="case-kicker">' + esc(c.kicker) + '</div>' +
+      '<h2>' + esc(c.title) + '</h2>' +
+      '<p class="case-lead">' + esc(c.lead) + '</p>' +
+      '<div class="case-meta">' + meta + '</div>' +
+      fixAssets(fixLinks(c.body, rel), rel) +
+      '</section>';
+  }).join('');
+  var rows = data.choose.map(function (r) {
+    return '<tr><td>' + esc(r.need) + '</td><td><b>' + esc(r.tool) + '</b></td><td>' + esc(r.why) + '</td><td>' + esc(r.eg) + '</td></tr>';
+  }).join('');
+  return '<div class="wrap">' +
+    '<div class="module-head"><h1>' + esc(data.title) + '</h1>' +
+    '<p class="muted">' + esc(data.intro) + '</p></div>' +
+    '<div class="callout tip small">' + esc(data.shotNote) + '</div>' +
+    cases +
+    '<section class="card"><h2>三个案例怎么选</h2>' +
+    '<div class="table-scroll"><table class="t">' +
+    '<tr><th>你的任务长什么样</th><th style="width:18%">优先用</th><th>为什么</th><th style="width:16%">对应案例</th></tr>' +
+    rows + '</table></div>' +
+    '<p class="small muted">判断顺序：先看任务要几步、要不要碰文件；再看是否需要排版。工具可以换，判断顺序不用换。</p>' +
+    '<div class="btn-row">' + link('/m/m1', rel, '← 回到模块一：工具分工', 'class="btn"') +
+    link('/templates', rel, '去模板库挑一条提示词 →', 'class="btn primary"') + '</div></section>' +
+    '</div>';
 }
 
 function renderTemplatesIndex(rel) {
@@ -407,6 +459,12 @@ function buildPages() {
       route: route, file: 'm/' + m.id + '/index.html', active: route, meta: metaFor(route),
       canonical: canonicalFor(route), jsonLd: moduleJsonLd(m), main: renderModule(m, relFor(route))
     });
+  });
+
+  var toolsMeta = metaFor('/tools');
+  pages.push({
+    route: '/tools', file: 'tools/index.html', active: '/tools', meta: toolsMeta,
+    canonical: canonicalFor('/tools'), jsonLd: toolsJsonLd(toolsMeta), main: renderTools(relFor('/tools'))
   });
 
   var tplMeta = metaFor('/templates');
